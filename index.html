@@ -1,54 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    
-    <title>Document</title>
-</head>
-
-<body>
-    <div>
-        <p>Filter ui cards via their profession.</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>F2 Week 2</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <p>Filter ui cards via their profession.</p>
+      <form>
+        <select class="formElement form myColor" id="profession">
+          <option value="none" selected disabled hidden>Profession</option>
+          <option value="Developer">Developer</option>
+          <option value="Admin">Admin</option>
+        </select>
+      </form>
     </div>
-    <br><br>
-<select name="Profession" id="forProfession" required>
-    <option value="" disabled selected>Profession</option>
-    <option value="Developer">Developer</option>
-    <option value="Admin">Admin</option>
-</select>
-<div class="upper" id="insert">
-    
-</div>
-<div class="forButton">
-    <button onclick="filter()">Filter</button>
-</div>
-<div class="title">
-    <p>Add new user</p>
-</div>
-<div class="container">
-    <div class="inputFeild">
-        <h4>Name</h4>
+    <div class="myelements container" id ="table">
+    </div> 
+    <button id="filter" class="container formElement" onclick="myFilter()">Filter</button>
+    <div class="container">
+      <p>Add a new user</p>
+      <form>
         <div>
-            <input class="bottom" type="text" placeholder="Enter name">
+          <label for="fullName">Enter Name</label><br /><br />
+          <input type="text" name="fullName" id="fullName" class="formElement myColor" value=""/>
         </div>
-    </div>
-    <div class="inputFeild">
-        <h4>Profession</h4>
         <div>
-            <input class="bottom" type="text" placeholder="Enter profession">
+          <label for="prof">Enter Profession</label><br /><br />
+          <input type="text" name="profession" id="prof" class="formElement myColor" value=""/>
         </div>
-    </div>
-    <div class="inputFeild">
-        <h4>Age</h4>
         <div>
-            <input class="bottom" type="text" placeholder="Enter age">
+          <label for="age">Enter Age</label><br /><br />
+          <input type="number" name="age" id="age" class="formElement myColor" value=""/>
         </div>
+      </form>
+      <button id="addUser" class=" formElement" onclick="addUser()">Add User</button>
     </div>
-</div>
-<button onclick="updateDataBase()">Add User</button>
-    <script src="script.js"></script>
-</body>
+    <script type="text/javascript" src="script.js"></script>
+  </body>
 </html>
