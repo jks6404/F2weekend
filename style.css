@@ -1,66 +1,65 @@
 body{
-    padding: 20px;
-    background-color: black;
+    background-color: #1e1e1e;
     color: white;
+    font-family: 'Inter', sans-serif;
+}
+.myColor{
+    background-color: #1e1e1e;
+    color:white;
+}
+select{
+    margin-top:30px;
+    font-size: 15px;
 }
 
-.innerText{
-    background-color: black;
-    color: white;
-    margin-top: 5px;
-    font-weight: 400;
+.form{
+    height:40px;
 }
-
-#forProfession{
-    background-color: black;
-    color: white;
-    margin-bottom: 10px;
-    padding: 10px;
-}
-
-.upper{
-    overflow-x: hidden;
-    overflow-y: auto;
-    /* border: 1px solid green; */
-    height: 300px;
-    width: 500px;
-}
-
 .container{
+    margin:50px;
+}
+.formElement{
+    margin-top: 0px;
+    width:150px;
+    padding:10px;
+}
+form{
+    display:flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+#addUser{
+    margin-top: 30px;;
+}
+input{
+    width:400px !important;
+    border:1px solid white;
+    border-radius: 5px;
+    margin-top:20px;
+}
+
+.user{
     display: flex;
-    width: 100%;
-    height: 100%;
-    justify-items: center;
+    width:50%;
+    justify-content:flex-start;
+    padding:10px;
+    margin-bottom:20px;
+    border:1px solid white;
+    border-radius: 5px;
 }
-
-.inputFeild{
-    align-items:center;
+.user div{
+    margin-right: 5px;
+    width:30%;
+}
+.user div:first-child{
+    width:10%;
+}
+@media  screen and (max-width:768px) {
+    .user{
+        width:70%;
+        font-size:10px;
+    }
     
-    width: 100%;
 }
 
-.title p{
-    font-size: 25px;
-    color: black;
-    font-weight: 300;
-}
-
-button{
-    margin-top: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
-input.bottom{
-    background-color: black;
-    color: white;
-    width: 90%;
-}
-
-
-.insertedNames{
-padding: 13px;
-margin:5px;
-border: 1px solid white;
-border-radius: 5px;
-}
