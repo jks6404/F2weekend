@@ -1,1 +1,43 @@
 
+ <style>
+        *{
+            font-family: 'Poppins', sans-serif;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+        body {
+            background-color: black;
+            color: white;
+        }
+        .form {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+        }
+        .add-user, .filter-button {
+            background-color: white;
+            border: none ;
+            border-radius: 5px;
+            padding: 10px 5px;
+            margin: 10px 0;
+            width: 100px;
+            cursor: pointer;
+        }
+        input, select {
+            padding: 10px 5px;
+            border: none ;
+            border-radius: 4px;
+        }
+        .user {
+            display: flex;
+            justify-content: space-evenly;
+            border: 2px solid gray;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        #container {
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+    </style>
