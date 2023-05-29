@@ -1,87 +1,91 @@
-let users=[{id:1,name:"john",age:"18",profession:"developer"},
-{id:2, name:"jack",age:"20", profession:"developer"},
-{id:3, name:"karen", age:"19",profession:"admin"}];
-let div=document.getElementById("table");
-for(let i=0;i<users.length;i++){
-    const user=document.createElement("div");
-    user.className="user";
-    const id=document.createElement("div");
-    id.innerText=users[i].id+".";
-    const name=document.createElement("div");
-    name.innerText="Name: "+users[i].name;
-    const age=document.createElement("div");
-    age.innerText="Age: "+users[i].age;
-    const profession=document.createElement("div");
-    profession.innerText="Profession: "+users[i].profession;
+const users = [
+    { id: 1, name: "john", age: 18, profession: "developer" }, 
+    { id: 2, name: "jack", age: 20, profession: "developer" }, 
+    { id: 3, name: "karen", age: 19, profession: "admin" },
+];
 
-    user.append(id);
-    user.append(name);
-    user.append(profession);
-    user.append(age);
-    div.append(user)
-}
 
-function myFilter(){
-    let select=document.getElementById("profession").value;
-    if(select==="none"){
-        alert("Please select a profession before clicking the button");
-        return;
+let select = document.getElementsByTagName("select")[0] ;
+let container = document.getElementById("container") ;
+
+function filterData(profession){
+    if(profession === ""){
+        return users ;
     }
-  const newSelect=select.toLowerCase();
-  const filteredArr = users.filter(ele => {
-    return ele.profession===newSelect;
-  });
-//   hide elements
-  const user=document.getElementsByClassName("user");
-  for(let i=0;i<user.length;i++){
-    user[i].style.display="none";
-  }
+    let usersList = users.filter((user) => {
+        return user.profession === profession ;// true
+    })
 
-//   Show the filtered rows
-  filteredArr.forEach((element) => {
-    const user=document.createElement("div");
-    user.className="user";
-    const id=document.createElement("div");
-    id.innerText=element.id+".";
-    const name=document.createElement("div");
-    name.innerText="Name: "+element.name;
-    const age=document.createElement("div");
-    age.innerText="Age: "+element.age;
-    const profession=document.createElement("div");
-    profession.innerText="Profession: "+element.profession;
-
-    user.append(id);
-    user.append(name);
-    user.append(profession);
-    user.append(age);
-    div.append(user)
-  });
+    return usersList ;
 }
 
+function addNewUser(){
+    let name = document.getElementById("name").value.trim();
+    let profession = document.getElementById("profession").value.trim();
+    let age = document.getElementById("age").value.trim();
 
+    if(name !== "" && age !== "" && profession !== ""){
+        let newUser = {
+            id: users[users.length - 1].id + 1,
+            name,
+            age,
+            profession: profession
+        };
 
+        users.push(newUser)
+        filterUsers();
+    }
+    else{
+        alert("All fields are required");
+    }
 
-function addUser(){
-    let userObj={};
-    userObj.id=users.length+1;
-    userObj.name=document.getElementById("fullName").value;
-    userObj.profession=document.getElementById("prof").value.toLowerCase();
-    userObj.age=document.getElementById("age").value;
-    users.push(userObj);
-    const user=document.createElement("div");
-    user.className="user";
-    const id=document.createElement("div");
-    id.innerText=users[users.length-1].id+".";
-    const name=document.createElement("div");
-    name.innerText="Name: "+users[users.length-1].name;
-    const age=document.createElement("div");
-    age.innerText="Age: "+users[users.length-1].age;
-    const profession=document.createElement("div");
-    profession.innerText="Profession: "+users[users.length-1].profession;
-
-    user.append(id);
-    user.append(name);
-    user.append(profession);
-    user.append(age);
-    div.append(user)
 }
+
+function filterUsers() {
+    let selectedValue = select.value ;
+    // selectedValue = "" | "developer" | "admin"
+    // selectedValue = "developer"
+    // filterData("developer");
+    let filteredUsers = filterData(selectedValue);
+    container.innerText = '' ;
+    appendUsers(filteredUsers);
+    
+}
+
+function appendUsers(usersList) {
+    // usersList = [{id: 1, name: "", age: 10, profession: ""} , {} , {} , ...]
+    /*
+        <div class="user">
+            <div>1</div>
+            <div>Name: John</div>
+            <div>Profession: Developer</div>
+            <div>Age: 22</div>
+        </div>
+    */
+
+
+    for(let i = 0 ; i < usersList.length ; i++){
+        let userCard = document.createElement("div");
+        userCard.className = "user" ; 
+
+        let idElement = document.createElement("div");
+        idElement.innerText = usersList[i].id ;
+
+        let nameElement = document.createElement("div");
+        nameElement.innerText = `Name: ${usersList[i].name}`;
+
+        let professionElement = document.createElement("div");
+        professionElement.innerText = `Profession: ${usersList[i].profession}`;
+
+        let ageElement = document.createElement("div"); 
+        ageElement.innerText = `Age: ${usersList[i].age}`
+
+        userCard.append(idElement);
+        userCard.append(nameElement);
+        userCard.append(professionElement);
+        userCard.append(ageElement)
+
+        container.append(userCard);
+    }
+}
+
