@@ -1,66 +1,30 @@
-body{
-    padding: 20px;
+* {
     background-color: black;
     color: white;
-}
-
-.innerText{
-    background-color: black;
-    color: white;
-    margin-top: 5px;
-    font-weight: 400;
-}
-
-#forProfession{
-    background-color: black;
-    color: white;
-    margin-bottom: 10px;
+    margin-left: 10px;
+  }
+  .userCard {
+    border: 1px solid #ccc;
     padding: 10px;
-}
-
-.upper{
-    overflow-x: hidden;
-    overflow-y: auto;
-    /* border: 1px solid green; */
-    height: 300px;
-    width: 500px;
-}
-
-.container{
-    display: flex;
-    width: 100%;
-    height: 100%;
-    justify-items: center;
-}
-
-.inputFeild{
-    align-items:center;
-    
-    width: 100%;
-}
-
-.title p{
-    font-size: 25px;
+    margin: 10px;
+    width: 30%;
+    border-radius: 10px;
+  }
+  #profession {
+    border: 1px solid white;
+    padding: 8px;
+    width: 9%;
+  }
+  button {
+    border: 1px solid white;
+    padding: 6px;
+    width: 10%;
     color: black;
-    font-weight: 300;
-}
-
-button{
-    margin-top: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
-input.bottom{
-    background-color: black;
-    color: white;
-    width: 90%;
-}
-
-
-.insertedNames{
-padding: 13px;
-margin:5px;
-border: 1px solid white;
-border-radius: 5px;
-}
+    background-color: white;
+    margin: 10px;
+  }
+  input {
+    border: 1px solid white;
+    border-radius: 4px;
+    padding: 6px;
+  }

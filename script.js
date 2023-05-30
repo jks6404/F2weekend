@@ -1,45 +1,69 @@
-let database = [{id:1,name:"john",age:"18",profession:"developer"},
-                {id:2, name:"jack",age:"20", profession:"developer"},
-                {id:3, name:"karen", age:"19",profession:"admin"}]
-let temp = document.getElementById("insert");
-function display(){
-    for(let i=0;i<database.length;i++){
-    let elements = document.createElement("div");
-    elements.className = "insertedNames";
-    elements.innerText = "ID: "+database[i].id + " Name: "+database[i].name  + " Profession: "+database[i].profession +" Age: "+ database[i].age;
-    temp.append(elements)
+// Array of users
+const users = [
+    { id: 1, name: "John", age: "18", profession: "developer" },
+    { id: 2, name: "Jack", age: "20", profession: "developer" },
+    { id: 3, name: "Karen", age: "19", profession: "admin" },
+  ];
+  
+  // Function to filter cards based on selected profession
+  function filterCards() {
+    const profession = document.getElementById("profession").value;
+  
+    if (profession === "") {
+      alert("Please select a profession before clicking the button.");
+      return;
     }
-}
-
-display();
-let masterIndex = 4;
-function updateDataBase(){
-    let values = document.getElementsByTagName("input");
-    let obj = {id:"",name:"",age:"",profession:""};
-    obj.id = masterIndex++;
-    obj.name = values[0].value;
-    obj.profession = values[1].value;
-    obj.age = values[2].value;
-    database.push(obj);
-
-
-        let elements = document.createElement("div");
-        elements.className = "insertedNames";
-        elements.innerText = "ID: "+masterIndex + " Name: "+obj.name  + " Profession: "+obj.profession +" Age: "+ obj.age;
-        temp.append(elements);
-    
-    console.log(database);
-
-
-}
-
-let forSelect = document.getElementById("forProfession");
-console.log(forSelect)
-function filter(){
-    let output = database.filter(function(element,index,database){
-        return element.profession=="developer";
-    })
-
-    
-    console.log(output);
-}
+  
+    const filteredUsers = users.filter(function (user) {
+      return user.profession === profession;
+    });
+  
+    displayUsers(filteredUsers);
+  }
+  
+  // Function to add a user to list
+  function addUser() {
+    const name = document.getElementById("name").value;
+    const age = document.getElementById("age").value;
+    const profession = document.getElementById("newProfession").value;
+  
+    if (name === "" || age === "" || profession === "") {
+      alert("Please fill in all the fields.");
+      return;
+    }
+  
+    const newUser = {
+      id: users.length + 1,
+      name: name,
+      profession: profession,
+      age: age,
+    };
+  
+    users.push(newUser);
+    displayUsers(users);
+  }
+  
+  // Function to display users in UI
+  function displayUsers(users) {
+    const userList = document.getElementById("userList");
+    userList.innerHTML = "";
+  
+    users.forEach(function (user) {
+      const card = document.createElement("div");
+      card.innerHTML =
+        " " +
+        user.id +
+        " Name: " +
+        user.name +
+        " Profession: " +
+        user.profession +
+        " Age: " +
+        user.age;
+      card.className = "userCard";
+  
+      userList.appendChild(card);
+    });
+  }
+  
+  // Initial display of users
+  displayUsers(users);
